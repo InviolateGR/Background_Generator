@@ -9,6 +9,7 @@ const randomButton = document.getElementById("random");
 const categorySelect = document.getElementById("category");
 const leftColorValue = document.getElementById("left_color_value");
 const rightColorValue = document.getElementById("right_color_value");
+const directionSelect = document.getElementById("direction");
 
 
 let currentCategory = "cool";
@@ -87,8 +88,10 @@ previousButton.addEventListener("click", () => {
 /* Rotate Gradient */
 rotateButton.addEventListener("click", () => {
   currentRotationIndex = (currentRotationIndex + 1) % rotations.length;
+  directionSelect.value = currentRotationIndex;
   applyGradient();
 });
+
 
 /* Copy gradient CSS */
 copyButton.addEventListener("click", () => {
@@ -118,6 +121,12 @@ categorySelect.addEventListener("change", (e) => {
   currentGradientIndex = 0;
   applyGradient();
 });
+
+directionSelect.addEventListener("change", (e) => {
+  currentRotationIndex = Number(e.target.value);
+  applyGradient();
+});
+
 
 /* Init */
 applyGradient();
