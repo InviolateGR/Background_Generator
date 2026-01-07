@@ -6,18 +6,38 @@ const rightColourBox = document.querySelector(".right_colour_box");
 const rotateButton = document.getElementById("rotate");
 const copyButton = document.getElementById("copy");
 const randomButton = document.getElementById("random");
+const categorySelect = document.getElementById("category");
 
+let currentCategory = "cool";
+let currentGradientIndex = 0;
+let currentRotationIndex = 0;
 
-const gradientList = [
-  ["#FF6B81", "#C774E7"],
-  ["#5E22D6", "#45B8C7"],
-  ["#C81F83", "#F37094"],
-  ["#00416A", "#E4E5E6"],
-  ["#FFE259", "#FFA751"],
-  ["#799F0C", "#ACBB78"],
-  ["#334D50", "#CBCaa5"],
-  ["#F7F8F8", "#ACBB78"]
-];
+const gradientCategories = {
+  cool: [
+    ["#2193B0", "#6DD5ED"],
+    ["#00C6FF", "#0072FF"]
+  ],
+  warm: [
+    ["#F12711", "#F5AF19"],
+    ["#FF512F", "#F09819"]
+  ],
+  vibrant: [
+    ["#FC466B", "#3F5EFB"],
+    ["#8E2DE2", "#4A00E0"]
+  ],
+  dark: [
+    ["#232526", "#414345"],
+    ["#000000", "#434343"]
+  ],
+  light: [
+    ["#FDFBFB", "#EBEDEE"],
+    ["#F5F7FA", "#C3CFE2"]
+  ],
+  rustique: [
+    ["#603813", "#B29F94"],
+    ["#3E2723", "#A1887F"]
+  ]
+};
 
 const rotations = [
   "to right",
@@ -30,11 +50,9 @@ const rotations = [
   "to top right"
 ];
 
-let currentGradientIndex = 0;
-let currentRotationIndex = 0;
-
 function applyGradient() {
-  const [left, right] = gradientList[currentGradientIndex];
+  const gradients = gradientCategories[currentCategory];
+  const [left, right] = gradients[currentGradientIndex];
   const direction = rotations[currentRotationIndex];
 
   gradientBox.style.background = `linear-gradient(${direction}, ${left}, ${right})`;
@@ -44,13 +62,15 @@ function applyGradient() {
 
 /* Navigation */
 nextButton.addEventListener("click", () => {
-  currentGradientIndex = (currentGradientIndex + 1) % gradientList.length;
+  const gradients = gradientCategories[currentCategory];
+  currentGradientIndex = (currentGradientIndex + 1) % gradients.length;
   applyGradient();
 });
 
 previousButton.addEventListener("click", () => {
+  const gradients = gradientCategories[currentCategory];
   currentGradientIndex =
-    (currentGradientIndex - 1 + gradientList.length) % gradientList.length;
+    (currentGradientIndex - 1 + gradients.length) % gradients.length;
   applyGradient();
 });
 
@@ -60,10 +80,12 @@ rotateButton.addEventListener("click", () => {
   applyGradient();
 });
 
-/* copy gradient values */
+/* Copy gradient CSS */
 copyButton.addEventListener("click", () => {
-  const [left, right] = gradientList[currentGradientIndex];
+  const gradients = gradientCategories[currentCategory];
+  const [left, right] = gradients[currentGradientIndex];
   const direction = rotations[currentRotationIndex];
+
   const cssCode = `background: linear-gradient(${direction}, ${left}, ${right});`;
 
   navigator.clipboard.writeText(cssCode).then(() => {
@@ -74,12 +96,18 @@ copyButton.addEventListener("click", () => {
 
 /* Randomize gradient */
 randomButton.addEventListener("click", () => {
-  currentGradientIndex = Math.floor(Math.random() * gradientList.length);
+  const gradients = gradientCategories[currentCategory];
+  currentGradientIndex = Math.floor(Math.random() * gradients.length);
   currentRotationIndex = Math.floor(Math.random() * rotations.length);
   applyGradient();
 });
 
-
+/* Category change */
+categorySelect.addEventListener("change", (e) => {
+  currentCategory = e.target.value;
+  currentGradientIndex = 0;
+  applyGradient();
+});
 
 /* Init */
 applyGradient();
