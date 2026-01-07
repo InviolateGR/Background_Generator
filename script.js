@@ -4,6 +4,8 @@ const gradientBox = document.querySelector(".gradient_display");
 const leftColourBox = document.querySelector(".left_colour_box");
 const rightColourBox = document.querySelector(".right_colour_box");
 const rotateButton = document.getElementById("rotate");
+const copyButton = document.getElementById("copy");
+
 
 const gradientList = [
   ["#FF6B81", "#C774E7"],
@@ -56,6 +58,18 @@ rotateButton.addEventListener("click", () => {
   currentRotationIndex = (currentRotationIndex + 1) % rotations.length;
   applyGradient();
 });
+
+copyButton.addEventListener("click", () => {
+  const [left, right] = gradientList[currentGradientIndex];
+  const direction = rotations[currentRotationIndex];
+  const cssCode = `background: linear-gradient(${direction}, ${left}, ${right});`;
+
+  navigator.clipboard.writeText(cssCode).then(() => {
+    copyButton.textContent = "Copied!";
+    setTimeout(() => (copyButton.textContent = "Copy CSS"), 1500);
+  });
+});
+
 
 /* Init */
 applyGradient();
