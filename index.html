@@ -1,91 +1,90 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js" defer></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gradient Backgrounds</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
 
-    </head>
-    <body>
-        <header>
-            <div class="title_box">
-                Gradient Backgrounds
-            </div>
-            <div class="share">
-                <div class="share_x" style="background-color: rgb(29, 161, 242);">Share on Twitter</div>
-                <div class="share_fb" style="background-color: rgb(22, 97, 195);">Share on FaceBook</div>
-            </div>
-        </header>
+<body>
 
-        <div class="nav_bar">
-            <div class="menu" id="menu">
-                Choose your Gradient
-            </div>
-            
-            <div class="category_selector">
-                <label for="category">Category:</label>
-                <select id="category">
-                    <option value="cool">Cool</option>
-                    <option value="warm">Warm</option>
-                    <option value="vibrant">Vibrant</option>
-                    <option value="dark">Dark</option>
-                    <option value="light">Light</option>
-                    <option value="rustique">Rustique</option>
-                </select>
-            </div>
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <div class="nav-left">Choose a Gradient</div>
+    <div class="nav-right">
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+  </nav>
 
-            <div class="direction_selector">
-                <label for="direction">Direction:</label>
-                <select id="direction">
-                    <option value="0">Left → Right</option>
-                    <option value="1">Top Left → Bottom Right</option>
-                    <option value="2">Top → Bottom</option>
-                    <option value="3">Top Right → Bottom Left</option>
-                    <option value="4">Right → Left</option>
-                    <option value="5">Bottom Right → Top Left</option>
-                    <option value="6">Bottom → Top</option>
-                    <option value="7">Bottom Left → Top Right</option>
-                </select>
-            </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Gradient Backgrounds</h1>
+    <p>Generate a gradient and copy it instantly</p>
 
+    <div class="hero-controls">
+      <button id="random">Randomize</button>
+      <div class="hero-actions">
+        <button id="rotate" title="Rotate Gradient">⟳</button>
+        <button id="copy" title="Copy CSS">📋</button>
+      </div>
+    </div>
 
-            <div class="current">
-                <div class="left_colour">
-                    <div class="left_colour_box"></div>
-                    <span id="left_color_value">#000000</span>
-                </div>
-
-                <span class="separator">→</span>
-
-                <div class="right_colour">
-                    <div class="right_colour_box"></div>
-                    <span id="right_color_value">#ffffff</span>
-                </div>
-            </div>
-
-
-            <div class="tools">
-                <div class="rotate" id="rotate">Rotate</div>
-                <div class="random" id="random">Random</div>
-                <div class="copy" id="copy">Copy CSS</div>
-            </div>
-
+    <!-- Gradient Preview -->
+    <div class="gradient-wrapper">
+      <div class="gradient_display">
+        <div class="color-values">
+          <span id="left_color_value">#000000</span>
+          →
+          <span id="right_color_value">#ffffff</span>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="gradient_display current_gradient">
-            <div class="previous_gradient" id="previous_button"> 
-                <svg width="60px" height="80px" viewBox="0 0 24 24" >
-                    <path d="M14.2893 5.70708C13.8988 5.31655 13.2657 5.31655 12.8751 5.70708L7.98768 10.5993C7.20729 11.3805 7.2076 12.6463 7.98837 13.427L12.8787 18.3174C13.2693 18.7079 13.9024 18.7079 14.293 18.3174C14.6835 17.9269 14.6835 17.2937 14.293 16.9032L10.1073 12.7175C9.71678 12.327 9.71678 11.6939 10.1073 11.3033L14.2893 7.12129C14.6799 6.73077 14.6799 6.0976 14.2893 5.70708Z" fill="white"/>
-                </svg>
-            </div>
-            <div class="next_gradient" id="next_button">
-                <svg width="60px" height="80px" viewBox="0 0 24 24" >
-                    <path d="M9.71069 18.2929C10.1012 18.6834 10.7344 18.6834 11.1249 18.2929L16.0123 13.4006C16.7927 12.6195 16.7924 11.3537 16.0117 10.5729L11.1213 5.68254C10.7308 5.29202 10.0976 5.29202 9.70708 5.68254C9.31655 6.07307 9.31655 6.70623 9.70708 7.09676L13.8927 11.2824C14.2833 11.6729 14.2833 12.3061 13.8927 12.6966L9.71069 16.8787C9.32016 17.2692 9.32016 17.9023 9.71069 18.2929Z" fill="white"/>
-                </svg>
-            </div>
-        </div>
-        
-    </body>
+  <!-- Color Themes -->
+  <section class="themes">
+    <h2>Color Themes</h2>
 
+    <div class="theme-grid">
+        <div class="theme-card" data-category="warm">Warm</div>
+        <div class="theme-card" data-category="cool">Cool</div>
+        <div class="theme-card" data-category="light">Light</div>
+        <div class="theme-card" data-category="vibrant">Vibrant</div>
+        <div class="theme-card" data-category="dark">Dark</div>
+        <div class="theme-card" data-category="rustique">Rustique</div>
+        <div class="theme-card" data-category="pastel">Pastel</div>
+        <div class="theme-card" data-category="neon">Neon</div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <h2>About Gradient Backgrounds</h2>
+    <div class="about-grid">
+      <p>
+        Gradient Backgrounds is a simple web tool that helps designers and
+        developers generate beautiful CSS gradients quickly and efficiently.
+      </p>
+      <p>
+        Pick a theme, rotate directions, randomize colors, and copy the CSS
+        instantly for your projects.
+      </p>
+    </div>
+    <a class="github-link" href="#" target="_blank">GitHub</a>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2>Contact Section</h2>
+    <div class="contact-grid">
+      <p>Email: example@email.com</p>
+      <p>Twitter: @example</p>
+      <p>GitHub: github.com/example</p>
+    </div>
+  </section>
+
+</body>
 </html>
