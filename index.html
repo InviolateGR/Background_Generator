@@ -22,11 +22,34 @@
             <div class="menu" id="menu">
                 Choose your Gradient
             </div>
-            <div class="current">
-                <div class="left_colour"><div class="left_colour_box"></div>left colour</div>
-                ---
-                <div class="right_colour"><div class="right_colour_box"></div>right colour</div>
+            
+            <div class="category_selector">
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="cool">Cool</option>
+                    <option value="warm">Warm</option>
+                    <option value="vibrant">Vibrant</option>
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                    <option value="rustique">Rustique</option>
+                </select>
             </div>
+
+            <div class="current">
+                <div class="left_colour">
+                    <div class="left_colour_box"></div>
+                    <span id="left_color_value">#000000</span>
+                </div>
+
+                <span class="separator">→</span>
+
+                <div class="right_colour">
+                    <div class="right_colour_box"></div>
+                    <span id="right_color_value">#ffffff</span>
+                </div>
+            </div>
+
+
             <div class="tools">
                 <div class="rotate" id="rotate">Rotate</div>
                 <div class="random" id="random">Random</div>

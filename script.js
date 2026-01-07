@@ -7,6 +7,9 @@ const rotateButton = document.getElementById("rotate");
 const copyButton = document.getElementById("copy");
 const randomButton = document.getElementById("random");
 const categorySelect = document.getElementById("category");
+const leftColorValue = document.getElementById("left_color_value");
+const rightColorValue = document.getElementById("right_color_value");
+
 
 let currentCategory = "cool";
 let currentGradientIndex = 0;
@@ -56,9 +59,16 @@ function applyGradient() {
   const direction = rotations[currentRotationIndex];
 
   gradientBox.style.background = `linear-gradient(${direction}, ${left}, ${right})`;
+
+  // color preview boxes
   leftColourBox.style.backgroundColor = left;
   rightColourBox.style.backgroundColor = right;
+
+  // hex value text
+  leftColorValue.textContent = left.toUpperCase();
+  rightColorValue.textContent = right.toUpperCase();
 }
+
 
 /* Navigation */
 nextButton.addEventListener("click", () => {
