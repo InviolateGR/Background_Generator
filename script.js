@@ -5,6 +5,7 @@ const leftColourBox = document.querySelector(".left_colour_box");
 const rightColourBox = document.querySelector(".right_colour_box");
 const rotateButton = document.getElementById("rotate");
 const copyButton = document.getElementById("copy");
+const randomButton = document.getElementById("random");
 
 
 const gradientList = [
@@ -59,6 +60,7 @@ rotateButton.addEventListener("click", () => {
   applyGradient();
 });
 
+/* copy gradient values */
 copyButton.addEventListener("click", () => {
   const [left, right] = gradientList[currentGradientIndex];
   const direction = rotations[currentRotationIndex];
@@ -69,6 +71,14 @@ copyButton.addEventListener("click", () => {
     setTimeout(() => (copyButton.textContent = "Copy CSS"), 1500);
   });
 });
+
+/* Randomize gradient */
+randomButton.addEventListener("click", () => {
+  currentGradientIndex = Math.floor(Math.random() * gradientList.length);
+  currentRotationIndex = Math.floor(Math.random() * rotations.length);
+  applyGradient();
+});
+
 
 
 /* Init */
