@@ -4,87 +4,94 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gradient Backgrounds</title>
+
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <script src="script.js" defer></script>
 </head>
 
 <body>
 
-  <!-- Top Navigation -->
-  <nav class="top-nav">
-    <div class="nav-left">Choose a Gradient</div>
-    <div class="nav-right">
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
-    </div>
-  </nav>
+<nav class="top-nav">
+  <div class="nav-left">Choose a Gradient</div>
+  <div class="nav-right">
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+  </div>
+</nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Gradient Backgrounds</h1>
-    <p>Generate a gradient and copy it instantly</p>
+<section class="hero">
+  <h1 class="title">Gradient Backgrounds</h1>
+  <p>Generate a gradient and copy it instantly</p>
 
-    <div class="hero-controls">
-      <button id="random">Randomize</button>
-      <div class="hero-actions">
-        <button id="rotate" title="Rotate Gradient">⟳</button>
-        <button id="copy" title="Copy CSS">📋</button>
+  <div class="hero-controls">
+    <button id="random">Randomize</button>
+
+    <div class="icon-group">
+      <div class="icon-btn" id="rotate" title="Rotate Gradient">
+        ⟳
+      </div>
+      <div class="icon-btn" id="copy" title="Copy CSS">
+        ⧉
       </div>
     </div>
+  </div>
 
-    <!-- Gradient Preview -->
-    <div class="gradient-wrapper">
-      <div class="gradient_display">
-        <div class="color-values">
-          <span id="left_color_value">#000000</span>
-          →
-          <span id="right_color_value">#ffffff</span>
-        </div>
+  <div class="gradient-wrapper">
+    <div class="gradient_display">
+      <div class="color-values">
+        <span id="left_color_value">#000000</span>
+        →
+        <span id="right_color_value">#ffffff</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Color Themes -->
-  <section class="themes">
-    <h2>Color Themes</h2>
+<section class="themes">
+  <h2>Color Themes</h2>
+  <div class="theme-grid">
+    <div class="theme-card" data-category="warm">Warm</div>
+    <div class="theme-card" data-category="cool">Cool</div>
+    <div class="theme-card" data-category="light">Light</div>
+    <div class="theme-card" data-category="vibrant">Vibrant</div>
+    <div class="theme-card" data-category="dark">Dark</div>
+    <div class="theme-card" data-category="rustique">Rustique</div>
+    <div class="theme-card" data-category="pastel">Pastel</div>
+    <div class="theme-card" data-category="neon">Neon</div>
+  </div>
+</section>
 
-    <div class="theme-grid">
-        <div class="theme-card" data-category="warm">Warm</div>
-        <div class="theme-card" data-category="cool">Cool</div>
-        <div class="theme-card" data-category="light">Light</div>
-        <div class="theme-card" data-category="vibrant">Vibrant</div>
-        <div class="theme-card" data-category="dark">Dark</div>
-        <div class="theme-card" data-category="rustique">Rustique</div>
-        <div class="theme-card" data-category="pastel">Pastel</div>
-        <div class="theme-card" data-category="neon">Neon</div>
-    </div>
-  </section>
+<section class="about" id="about">
+  <h2>About Gradient Backgrounds</h2>
+  <div class="about-grid">
+    <p>
+      Gradient Backgrounds helps designers and developers generate beautiful CSS gradients instantly.
+    </p>
+    <p>
+      Pick themes, rotate directions, randomize colors, and copy production-ready CSS.
+    </p>
+  </div>
 
-  <!-- About -->
-  <section class="about" id="about">
-    <h2>About Gradient Backgrounds</h2>
-    <div class="about-grid">
-      <p>
-        Gradient Backgrounds is a simple web tool that helps designers and
-        developers generate beautiful CSS gradients quickly and efficiently.
-      </p>
-      <p>
-        Pick a theme, rotate directions, randomize colors, and copy the CSS
-        instantly for your projects.
-      </p>
-    </div>
-    <a class="github-link" href="#" target="_blank">GitHub</a>
-  </section>
+<div class="github-link">
+  <a href="https://github.com/YOUR_USERNAME/Background_Generator" target="_blank">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 .5C5.73.5.5 5.74.5 12.03c0 5.1 3.29 9.42 7.86 10.95.58.11.79-.25.79-.56v-2.1c-3.2.7-3.87-1.54-3.87-1.54-.53-1.35-1.29-1.71-1.29-1.71-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.72-1.55-2.56-.3-5.26-1.29-5.26-5.73 0-1.27.45-2.3 1.2-3.11-.12-.3-.52-1.52.11-3.17 0 0 .98-.32 3.2 1.19a11 11 0 0 1 5.82 0c2.22-1.51 3.2-1.19 3.2-1.19.63 1.65.23 2.87.11 3.17.75.81 1.2 1.84 1.2 3.11 0 4.45-2.71 5.43-5.29 5.72.41.36.77 1.06.77 2.14v3.17c0 .31.21.68.8.56A11.54 11.54 0 0 0 23.5 12C23.5 5.74 18.27.5 12 .5z"/>
+    </svg>
+    <span>View on GitHub</span>
+  </a>
+</div>
 
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <h2>Contact Section</h2>
-    <div class="contact-grid">
-      <p>Email: example@email.com</p>
-      <p>Twitter: @example</p>
-      <p>GitHub: github.com/example</p>
-    </div>
-  </section>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Contact</h2>
+  <div class="contact-grid">
+    <p>Email: example@email.com</p>
+    <p>Twitter: @example</p>
+    <p>GitHub: github.com/example</p>
+  </div>
+</section>
 
 </body>
 </html>
