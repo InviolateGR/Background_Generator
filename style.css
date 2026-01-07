@@ -1,3 +1,9 @@
+:root {
+  --color-1: #000000;
+  --color-2: #ffffff;
+  --direction: to right;
+}
+
 *{
     box-sizing: border-box;
     padding: 0;
@@ -76,6 +82,11 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: linear-gradient(
+    var(--direction),
+    var(--color-1),
+    var(--color-2)
+  );
 }
 .previous_gradient, .next_gradient{
     background-color: rgba(255, 255, 255, 0.4);
